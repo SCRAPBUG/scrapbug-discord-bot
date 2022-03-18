@@ -4,6 +4,8 @@ require('dotenv').config();
 const fs = require('fs');
 const discord = require('discord.js');
 const { clientId, guildId } = require('./config.json');
+const express = require('express');
+const app = express();
 
 
 const client = new discord.Client({
@@ -45,6 +47,18 @@ client.on('interactionCreate', async interaction => {
 client.once('ready', async () => {
 	console.log(`logged in as ${client.user.tag}`);
 });
+
+app.listen(process.env.PORT, () =>
+	console.log('Bot is running!')
+);
+
+// Uptime
+app.get('/', (req, res) =>
+	res.send('Running!')
+);
+
+
+
 
 // Reactions
 
