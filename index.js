@@ -1,7 +1,7 @@
 
 // Start
 require('dotenv').config();
-const fs = require('node:fs');
+const fs = require('fs');
 const discord = require('discord.js');
 const { clientId, guildId } = require('./config.json');
 
